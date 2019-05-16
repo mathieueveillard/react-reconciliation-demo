@@ -26,6 +26,7 @@ const newProps: ParentProps = {
 };
 
 export const ADD_NEW_CHILD: Scenario = {
+  name: "ADD_NEW_CHILD",
   actualProps,
   newProps
 };

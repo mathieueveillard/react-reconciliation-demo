@@ -14,23 +14,15 @@ export const SelectComponentType: React.StatelessComponent<Props> = ({
   return (
     <div className="select-component-type-container">
       <h5>Component type</h5>
-      <select onChange={event => onChange(event.target.value)}>
-        <option
-          value={ComponentType.STATELESS}
-          selected={componentType === ComponentType.STATELESS}
-        >
+      <select
+        value={componentType}
+        onChange={event => onChange(event.target.value)}
+      >
+        <option value={ComponentType.STATELESS}>
           {ComponentType.STATELESS}
         </option>
-        <option
-          value={ComponentType.PURE}
-          selected={componentType === ComponentType.PURE}
-        >
-          {ComponentType.PURE}
-        </option>
-        <option
-          value={ComponentType.STATEFULL}
-          selected={componentType === ComponentType.STATEFULL}
-        >
+        <option value={ComponentType.PURE}>{ComponentType.PURE}</option>
+        <option value={ComponentType.STATEFULL}>
           {ComponentType.STATEFULL}
         </option>
       </select>

@@ -28,7 +28,6 @@ export function Application(): React.ReactElement {
       <div className="scenario-selection">
         <SelectScenario
           scenario={scenario}
-          scenarii={scenarii}
           onChange={(value: string) => {
             setScenario(scenarii[value]);
             setProps(scenario.actualProps);
