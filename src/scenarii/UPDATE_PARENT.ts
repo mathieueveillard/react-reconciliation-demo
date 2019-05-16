@@ -1,5 +1,5 @@
-import { ParentProps } from "../ParentProps";
-import { Scenario } from "./Scenario";
+import { Scenario } from "../interfaces/Scenario";
+import { ParentProps } from "../interfaces/ParentProps";
 
 const actualProps: ParentProps = {
   value: 0,

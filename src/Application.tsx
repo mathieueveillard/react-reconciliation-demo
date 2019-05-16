@@ -1,19 +1,16 @@
 import React, { useState } from "react";
 import { scenarii } from "./scenarii";
-import { Parent as StatelessParent } from "./stateless/Parent";
-import { Parent as PureParent } from "./pure/Parent";
-import { Parent as StatefullParent } from "./statefull/Parent";
-import { DisplayProps } from "./DisplayProps";
-import { DisplayPropsDiff } from "./DisplayPropsDiff";
-import { SelectScenario } from "./SelectScenario";
-import { SelectComponentType } from "./SelectComponentType";
+import { Parent as StatelessParent } from "./components/Result/stateless/Parent";
+import { Parent as PureParent } from "./components/Result/pure/Parent";
+import { Parent as StatefullParent } from "./components/Result/statefull/Parent";
+import { DisplayProps } from "./components/DisplayProps";
+import { DisplayPropsDiff } from "./components/DisplayPropsDiff";
+import { SelectScenario } from "./components/SelectScenario";
+import { SelectComponentType } from "./components/SelectComponentType";
+import { ComponentType } from "./interfaces/ComponentType";
 import "./Application.scss";
-
-export enum ComponentType {
-  STATELESS = "STATELESS",
-  PURE = "PURE",
-  STATEFULL = "STATEFULL"
-}
+import { Result } from "./components/Result";
+import { Actions } from "./components/Actions";
 
 export function Application(): React.ReactElement {
   const [componentType, setComponentType] = useState(ComponentType.STATELESS);
@@ -38,50 +35,27 @@ export function Application(): React.ReactElement {
             setProps(scenario.actualProps);
           }}
         />
-        <div>
-          <button
-            className="mdl-button mdl-js-button mdl-button--raised"
-            onClick={() => {
-              reset(1 - forceRerender);
-              setProps(scenario.actualProps);
-            }}
-          >
-            Reset
-          </button>{" "}
-          <button
-            className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
-            onClick={() => setProps(scenario.newProps)}
-          >
-            Apply new props
-          </button>
-        </div>
+        <Actions
+          onReset={() => {
+            reset(1 - forceRerender);
+            setProps(scenario.actualProps);
+          }}
+          onApplyNewProps={() => setProps(scenario.newProps)}
+        />
       </div>
       {forceRerender === 0 && (
-        <div>
-          {componentType === ComponentType.STATELESS && (
-            <StatelessParent value={props.value} children={props.children} />
-          )}
-          {componentType === ComponentType.PURE && <PureParent value={props.value} children={props.children} />}
-          {componentType === ComponentType.STATEFULL && (
-            <StatefullParent value={props.value} children={props.children} />
-          )}
-        </div>
+        <Result componentType={componentType} propsToApply={props} />
       )}
       {forceRerender === 1 && (
-        <div>
-          {componentType === ComponentType.STATELESS && (
-            <StatelessParent value={props.value} children={props.children} />
-          )}
-          {componentType === ComponentType.PURE && <PureParent value={props.value} children={props.children} />}
-          {componentType === ComponentType.STATEFULL && (
-            <StatefullParent value={props.value} children={props.children} />
-          )}
-        </div>
+        <Result componentType={componentType} propsToApply={props} />
       )}
       <div className="props-container">
         <DisplayProps title="Actual props" props={scenario.actualProps} />
         <DisplayProps title="New props" props={scenario.newProps} />
-        <DisplayPropsDiff actualProps={scenario.actualProps} newProps={scenario.newProps} />
+        <DisplayPropsDiff
+          actualProps={scenario.actualProps}
+          newProps={scenario.newProps}
+        />
       </div>
     </div>
   );

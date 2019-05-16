@@ -5,7 +5,10 @@ interface Props {
   props: any;
 }
 
-export function DisplayProps({ title, props }: Props): React.ReactElement {
+export const DisplayProps: React.StatelessComponent<Props> = ({
+  title,
+  props
+}: Props) => {
   return (
     <div className="props">
       <div>
@@ -14,4 +17,4 @@ export function DisplayProps({ title, props }: Props): React.ReactElement {
       <pre>{JSON.stringify(props, undefined, 2)}</pre>
     </div>
   );
-}
+};

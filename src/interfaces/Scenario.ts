@@ -1,4 +1,4 @@
-import { ParentProps } from "../ParentProps";
+import { ParentProps } from "./ParentProps";
 
 export interface Scenario {
   actualProps: ParentProps;

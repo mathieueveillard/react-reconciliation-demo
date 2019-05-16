@@ -1,11 +1,11 @@
 import React from "react";
 import { Child } from "./Child";
-import { Value } from "../Value";
-import { getTimeStamp } from "../util";
-import { ParentProps } from "../ParentProps";
+import { Value } from "../../../Value";
+import { getTimeStamp } from "../../../util/time";
+import { ParentProps } from "../../../interfaces/ParentProps";
 import "./Parent.scss";
 
-export class Parent extends React.Component<ParentProps, {}, undefined> {
+export class Parent extends React.PureComponent<ParentProps, {}, undefined> {
   constructor(props: ParentProps) {
     super(props);
   }

@@ -1,5 +1,5 @@
-import { ParentProps } from "../ParentProps";
-import { Scenario } from "./Scenario";
+import { Scenario } from "../interfaces/Scenario";
+import { ParentProps } from "../interfaces/ParentProps";
 
 const firstChild = {
   id: "bb2c10b5-6c08-4d91-b85c-d182e1f235a2",

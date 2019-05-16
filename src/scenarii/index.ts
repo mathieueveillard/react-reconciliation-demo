@@ -1,4 +1,4 @@
-import { Scenario } from "./Scenario";
+import { Scenario } from "../interfaces/Scenario";
 import { ADD_NEW_CHILD } from "./ADD_NEW_CHILD";
 import { UPDATE_CHILD } from "./UPDATE_CHILD";
 import { UPDATE_PARENT } from "./UPDATE_PARENT";
