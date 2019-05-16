@@ -16,20 +16,20 @@ export function Application(): React.ReactElement {
   const [forceRerender, reset] = useState(0);
   return (
     <div className="container">
-      <div className="component-type-selection">
-        <SelectComponentType
-          componentType={componentType}
-          onChange={(value: ComponentType) => {
-            setComponentType(value);
-            setProps(scenario.actualProps);
-          }}
-        />
-      </div>
       <div className="scenario-selection">
         <SelectScenario
           scenario={scenario}
           onChange={(value: string) => {
             setScenario(scenarii[value]);
+            setProps(scenario.actualProps);
+          }}
+        />
+      </div>
+      <div className="component-type-selection">
+        <SelectComponentType
+          componentType={componentType}
+          onChange={(value: ComponentType) => {
+            setComponentType(value);
             setProps(scenario.actualProps);
           }}
         />
