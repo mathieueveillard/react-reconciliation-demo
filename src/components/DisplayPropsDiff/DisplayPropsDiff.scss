@@ -1,9 +1,15 @@
-.true {
-  color: lightgreen;
-  font-weight: bold;
-}
+.display-props-diff-container {
+  .true {
+    color: lightgreen;
+    font-weight: bold;
+  }
 
-.false {
-  color: red;
-  font-weight: bold;
+  .false {
+    color: red;
+    font-weight: bold;
+  }
+
+  .code {
+    font-size: 0.9em;
+  }
 }

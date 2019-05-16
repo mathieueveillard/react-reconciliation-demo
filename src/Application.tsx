@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import { scenarii } from "./scenarii";
-import { Parent as StatelessParent } from "./components/Result/stateless/Parent";
-import { Parent as PureParent } from "./components/Result/pure/Parent";
-import { Parent as StatefullParent } from "./components/Result/statefull/Parent";
 import { DisplayProps } from "./components/DisplayProps";
 import { DisplayPropsDiff } from "./components/DisplayPropsDiff";
 import { SelectScenario } from "./components/SelectScenario";
 import { SelectComponentType } from "./components/SelectComponentType";
 import { ComponentType } from "./interfaces/ComponentType";
-import "./Application.scss";
 import { Result } from "./components/Result";
 import { Actions } from "./components/Actions";
+import "./Application.scss";
 
 export function Application(): React.ReactElement {
   const [componentType, setComponentType] = useState(ComponentType.STATELESS);
@@ -18,8 +15,8 @@ export function Application(): React.ReactElement {
   const [props, setProps] = useState(scenario.actualProps);
   const [forceRerender, reset] = useState(0);
   return (
-    <div>
-      <div className="action">
+    <div className="container">
+      <div className="component-type-selection">
         <SelectComponentType
           componentType={componentType}
           onChange={(value: ComponentType) => {
@@ -27,6 +24,8 @@ export function Application(): React.ReactElement {
             setProps(scenario.actualProps);
           }}
         />
+      </div>
+      <div className="scenario-selection">
         <SelectScenario
           scenario={scenario}
           scenarii={scenarii}
@@ -35,6 +34,8 @@ export function Application(): React.ReactElement {
             setProps(scenario.actualProps);
           }}
         />
+      </div>
+      <div className="actions">
         <Actions
           onReset={() => {
             reset(1 - forceRerender);
@@ -43,19 +44,25 @@ export function Application(): React.ReactElement {
           onApplyNewProps={() => setProps(scenario.newProps)}
         />
       </div>
-      {forceRerender === 0 && (
-        <Result componentType={componentType} propsToApply={props} />
-      )}
-      {forceRerender === 1 && (
-        <Result componentType={componentType} propsToApply={props} />
-      )}
-      <div className="props-container">
+      <div className="actual-props">
         <DisplayProps title="Actual props" props={scenario.actualProps} />
+      </div>
+      <div className="new-props">
         <DisplayProps title="New props" props={scenario.newProps} />
+      </div>
+      <div className="props-diff">
         <DisplayPropsDiff
           actualProps={scenario.actualProps}
           newProps={scenario.newProps}
         />
+      </div>
+      <div className="result">
+        {forceRerender === 0 && (
+          <Result componentType={componentType} propsToApply={props} />
+        )}
+        {forceRerender === 1 && (
+          <Result componentType={componentType} propsToApply={props} />
+        )}
       </div>
     </div>
   );

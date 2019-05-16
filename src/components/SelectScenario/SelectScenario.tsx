@@ -1,5 +1,6 @@
 import React from "react";
 import { Scenario } from "../../interfaces/Scenario";
+import "./SelectScenario.scss";
 
 interface Props {
   scenario: Scenario;
@@ -13,7 +14,7 @@ export const SelectScenario: React.StatelessComponent<Props> = ({
   onChange
 }: Props) => {
   return (
-    <div style={{ display: "inline-block" }}>
+    <div className="select-scenario-container">
       <h5>Scenario</h5>
       <select onChange={event => onChange(event.target.value)}>
         <option

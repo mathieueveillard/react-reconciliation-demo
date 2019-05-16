@@ -1,14 +1,48 @@
-.action {
-  padding: 1em;
-  display: flex;
-  justify-content: space-evenly;
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: repeat(3, 1fr);
+  grid-gap: 1em;
+  justify-items: center;
+  align-items: center;
 }
 
-.props-container {
-  display: flex;
-  justify-content: space-evenly;
+.component-type-selection {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
 
-  .props {
-    margin: 0 2em;
-  }
+.scenario-selection {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.actions {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+
+.actual-props {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  align-self: start;
+}
+
+.new-props {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  align-self: start;
+}
+
+.props-diff {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  align-self: start;
+}
+
+.result {
+  grid-column: 1 / 4;
+  grid-row: 3 / 4;
 }

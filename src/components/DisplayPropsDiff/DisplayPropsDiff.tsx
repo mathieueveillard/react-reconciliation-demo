@@ -14,11 +14,11 @@ export const DisplayPropsDiff: React.StatelessComponent<Props> = ({
   const isTrue = <span className="true">true</span>;
   const isFalse = <span className="false">false</span>;
   return (
-    <div className="props">
+    <div className="display-props-diff-container">
       <div>
         <h5>Diff</h5>
       </div>
-      <div>
+      <div className="code">
         <pre>
           actualProps === newProps :{" "}
           {actualProps === newProps ? isTrue : isFalse}

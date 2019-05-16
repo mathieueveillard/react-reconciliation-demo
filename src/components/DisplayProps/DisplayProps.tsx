@@ -1,4 +1,5 @@
 import React from "react";
+import "./DisplayProps.scss";
 
 interface Props {
   title: string;
@@ -10,11 +11,11 @@ export const DisplayProps: React.StatelessComponent<Props> = ({
   props
 }: Props) => {
   return (
-    <div className="props">
+    <div className="display-props-container">
       <div>
         <h5>{title}</h5>
       </div>
-      <pre>{JSON.stringify(props, undefined, 2)}</pre>
+      <pre className="code">{JSON.stringify(props, undefined, 2)}</pre>
     </div>
   );
 };

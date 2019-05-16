@@ -1,4 +1,5 @@
 import React from "react";
+import "./Actions.scss";
 
 interface Props {
   onReset(): void;
@@ -10,13 +11,14 @@ export const Actions: React.StatelessComponent<Props> = ({
   onApplyNewProps
 }: Props) => {
   return (
-    <div className="actions">
+    <div className="actions-container">
       <button
         className="mdl-button mdl-js-button mdl-button--raised"
         onClick={onReset}
       >
         Reset
-      </button>{" "}
+      </button>
+      <div className="separator" />
       <button
         className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
         onClick={onApplyNewProps}

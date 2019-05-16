@@ -1,13 +1,19 @@
-$spacing: 20px;
-
-.parent {
-  margin: $spacing;
-  padding: $spacing;
+.parent-container {
+  display: flex;
   font-size: 1em;
   background-color: lightyellow;
   color: black;
 
-  .children {
+  $spacing: 20px;
+
+  .own-value {
+    margin: $spacing;
+    padding: $spacing;
+    width: 100px;
+    height: 100px;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }

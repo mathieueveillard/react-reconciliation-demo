@@ -1,5 +1,6 @@
 import React from "react";
 import { ComponentType } from "../../interfaces/ComponentType";
+import "./SelectComponentType.scss";
 
 interface Props {
   componentType: ComponentType;
@@ -11,7 +12,7 @@ export const SelectComponentType: React.StatelessComponent<Props> = ({
   onChange
 }: Props) => {
   return (
-    <div style={{ display: "inline-block" }}>
+    <div className="select-component-type-container">
       <h5>Component type</h5>
       <select onChange={event => onChange(event.target.value)}>
         <option
