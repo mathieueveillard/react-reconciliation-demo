@@ -7,13 +7,15 @@ import { SelectComponentType } from "./components/SelectComponentType";
 import { ComponentType } from "./interfaces/ComponentType";
 import { Result } from "./components/Result";
 import { Actions } from "./components/Actions";
+import useForceUpdate from "use-force-update";
 import "./Application.scss";
 
 export function Application(): React.ReactElement {
   const [componentType, setComponentType] = useState(ComponentType.STATELESS);
   const [scenario, setScenario] = useState(scenarii.UPDATE_PARENT);
   const [props, setProps] = useState(scenario.actualProps);
-  const [forceRerender, reset] = useState(0);
+  const forceUpdate = useForceUpdate();
+
   return (
     <div className="container">
       <div className="scenario-selection">
@@ -37,7 +39,7 @@ export function Application(): React.ReactElement {
       <div className="actions">
         <Actions
           onReset={() => {
-            reset(1 - forceRerender);
+            forceUpdate();
             setProps(scenario.actualProps);
           }}
           onApplyNewProps={() => setProps(scenario.newProps)}
@@ -56,12 +58,7 @@ export function Application(): React.ReactElement {
         />
       </div>
       <div className="result">
-        {forceRerender === 0 && (
-          <Result componentType={componentType} propsToApply={props} />
-        )}
-        {forceRerender === 1 && (
-          <Result componentType={componentType} propsToApply={props} />
-        )}
+        <Result componentType={componentType} propsToApply={props} />
       </div>
     </div>
   );
