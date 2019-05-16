@@ -6,11 +6,11 @@ interface Props {
   value: number;
 }
 
-export function Value({ value }: Props): React.ReactElement {
+export const Value: React.StatelessComponent<Props> = ({ value }: Props) => {
   return (
     <div className="value-container">
       <div className="value">{value}</div>
       <div className="timestamp">{getTimeStamp()}</div>
     </div>
   );
-}
+};
