@@ -4,7 +4,10 @@ import { Value } from "../Value";
 import { ParentProps } from "../../../interfaces/ParentProps";
 import "./Parent.scss";
 
-export function Parent({ value, children }: ParentProps): React.ReactElement {
+export const Parent: React.StatelessComponent<ParentProps> = ({
+  value,
+  children
+}: ParentProps) => {
   return (
     <div className="parent-container">
       <div className="own-value">
@@ -15,4 +18,4 @@ export function Parent({ value, children }: ParentProps): React.ReactElement {
       ))}
     </div>
   );
-}
+};
