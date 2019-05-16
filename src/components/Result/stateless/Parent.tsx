@@ -10,6 +10,7 @@ export const Parent: React.StatelessComponent<ParentProps> = ({
 }: ParentProps) => {
   return (
     <div className="parent-container">
+      <div className="who-am-i">Parent</div>
       <div className="own-value">
         <Value value={value} />
       </div>

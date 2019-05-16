@@ -4,6 +4,7 @@ import { Parent as PureParent } from "./pure/Parent";
 import { Parent as StatefullParent } from "./statefull/Parent";
 import { ComponentType } from "../../interfaces/ComponentType";
 import { ParentProps } from "../../interfaces/ParentProps";
+import "./Result.scss";
 
 interface Props {
   componentType: ComponentType;

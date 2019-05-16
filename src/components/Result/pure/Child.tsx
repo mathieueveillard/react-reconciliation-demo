@@ -10,7 +10,8 @@ export class Child extends React.PureComponent<ChildProps, {}, undefined> {
 
   render() {
     return (
-      <div className="child">
+      <div className="child-container">
+        <div className="who-am-i">Child</div>
         <Value value={this.props.value} />
       </div>
     );

@@ -1,6 +1,7 @@
 $spacing: 20px;
 
-.child {
+.child-container {
+  position: relative;
   margin: $spacing;
   padding: $spacing;
   width: 100px;

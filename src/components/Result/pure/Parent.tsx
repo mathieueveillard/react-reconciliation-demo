@@ -12,6 +12,7 @@ export class Parent extends React.PureComponent<ParentProps, {}, undefined> {
   render() {
     return (
       <div className="parent-container">
+        <div className="who-am-i">Parent</div>
         <div className="own-value">
           <Value value={this.props.value} />
         </div>

@@ -20,7 +20,9 @@ export const SelectScenario: React.StatelessComponent<Props> = ({
         onChange={event => onChange(event.target.value)}
       >
         {Object.keys(scenarii).map((key: string) => (
-          <option value={key}>{key}</option>
+          <option key={key} value={key}>
+            {key}
+          </option>
         ))}
       </select>
     </div>

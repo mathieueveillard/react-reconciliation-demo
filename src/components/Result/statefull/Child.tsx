@@ -14,7 +14,8 @@ export class Child extends React.Component<ChildProps, {}, undefined> {
 
   render() {
     return (
-      <div className="child">
+      <div className="child-container">
+        <div className="who-am-i">Child</div>
         <Value value={this.props.value} />
       </div>
     );
