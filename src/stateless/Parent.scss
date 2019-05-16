@@ -1,0 +1,13 @@
+$spacing: 20px;
+
+.parent {
+  margin: $spacing;
+  padding: $spacing;
+  font-size: 1em;
+  background-color: lightyellow;
+  color: black;
+
+  .children {
+    display: flex;
+  }
+}

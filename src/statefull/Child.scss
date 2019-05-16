@@ -1,0 +1,14 @@
+$spacing: 20px;
+
+.child {
+  margin: $spacing;
+  padding: $spacing;
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

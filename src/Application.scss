@@ -1,0 +1,14 @@
+.action {
+  padding: 1em;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.props-container {
+  display: flex;
+  justify-content: space-evenly;
+
+  .props {
+    margin: 0 2em;
+  }
+}
