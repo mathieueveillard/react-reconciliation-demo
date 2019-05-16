@@ -1,5 +1,6 @@
 import React from "react";
 import { Scenario } from "../../interfaces/Scenario";
+import { scenarii } from "../../scenarii";
 import "./SelectScenario.scss";
 
 interface Props {
@@ -18,9 +19,9 @@ export const SelectScenario: React.StatelessComponent<Props> = ({
         value={scenario.name}
         onChange={event => onChange(event.target.value)}
       >
-        <option value="UPDATE_PARENT">UPDATE_PARENT</option>
-        <option value="UPDATE_CHILD">UPDATE_CHILD</option>
-        <option value="ADD_NEW_CHILD">ADD_NEW_CHILD</option>
+        {Object.keys(scenarii).map((key: string) => (
+          <option value={key}>{key}</option>
+        ))}
       </select>
     </div>
   );
